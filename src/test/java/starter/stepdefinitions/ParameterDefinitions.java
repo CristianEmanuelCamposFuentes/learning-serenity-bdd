@@ -1,3 +1,4 @@
+// ParameterDefinitions.java
 package starter.stepdefinitions;
 
 import io.cucumber.java.Before;
@@ -8,13 +9,18 @@ import net.serenitybdd.screenplay.actors.OnlineCast;
 
 public class ParameterDefinitions {
 
+    // Este método define un tipo de parámetro personalizado para los actores en los escenarios de Cucumber.
     @ParameterType(".*")
     public Actor actor(String actorName) {
+        // Crea y retorna un nuevo Actor con el nombre proporcionado.
         return OnStage.theActorCalled(actorName);
     }
 
+    // Este método se ejecuta antes de cada escenario y configura el escenario para la ejecución de pruebas.
     @Before
     public void setTheStage() {
+        // Configura el escenario con un nuevo elenco de actores en línea.
         OnStage.setTheStage(new OnlineCast());
     }
 }
+
