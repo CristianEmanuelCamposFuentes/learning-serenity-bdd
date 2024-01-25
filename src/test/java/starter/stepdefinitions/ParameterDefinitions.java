@@ -6,6 +6,7 @@ import io.cucumber.java.ParameterType;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.actors.OnStage;
 import net.serenitybdd.screenplay.actors.OnlineCast;
+import starter.helpers.TodoListPage;
 
 public class ParameterDefinitions {
 
@@ -18,9 +19,10 @@ public class ParameterDefinitions {
 
     // Este método se ejecuta antes de cada escenario y configura el escenario para la ejecución de pruebas.
     @Before
-    public void setTheStage() {
-        // Configura el escenario con un nuevo elenco de actores en línea.
+    public void setTheStage(){
         OnStage.setTheStage(new OnlineCast());
+        // Configura el escenario con un nuevo elenco de actores en línea.
+        TodoListPage.setBaseUrl("https://es.wikipedia.org/wiki/Wikipedia:Portada");
     }
 }
 
